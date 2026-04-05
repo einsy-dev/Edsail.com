@@ -1,1 +1,6 @@
 @import 'tailwindcss';
+
+body {
+	font-family: 'Outfit', sans-serif;
+	letter-spacing: -0.02em; /* Makes it feel more 'tech' */
+}
