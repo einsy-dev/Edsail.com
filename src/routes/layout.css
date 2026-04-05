@@ -1,18 +1,32 @@
 @import 'tailwindcss';
 
-:root {
-	/* --color-glass: @apply backdrop-blur-xs border-white/20; */
+@theme {
+	--color-card: rgba(146, 182, 240, 0.15);
 }
 
-body {
+#root {
 	/* height: 100vh; */
 	font-family: 'Outfit', sans-serif;
 	letter-spacing: -0.02em; /* Makes it feel more 'tech' */
-	@apply flex h-screen grow flex-col;
+	@apply flex max-h-screen grow flex-col overflow-scroll [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
 }
 
+.scroll-hide {
+	@apply [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+}
+.header {
+	@apply fixed inset-0 z-50 h-[8vh];
+}
 .container {
-	@apply mx-auto flex grow px-4 py-1 xl:max-w-360;
+	@apply mx-auto flex h-full grow px-4 py-2 xl:max-w-360;
+}
+
+.icon {
+	@apply h-4 w-4;
+}
+
+.icon-2 {
+	@apply h-5 w-5;
 }
 
 .glass {

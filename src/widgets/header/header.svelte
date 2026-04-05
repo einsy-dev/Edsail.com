@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { UserRound } from '@lucide/svelte';
 
+	let { class: className = '' } = $props();
+
 	const routes = [
+		{ title: 'Admin', path: '/admin' },
 		{ title: 'Blog', path: '/blog' },
 		{ title: 'Projects', path: '/projects' },
 		{ title: 'Contacts', path: '/contacts' },
@@ -10,9 +13,9 @@
 	];
 </script>
 
-<header class="flex p-1 justify-center glass">
-	<div class="container justify-between">
-		<div class="">
+<header class="fixed inset-0 z-50 glass {className} flex flex-1">
+	<div class="container flex flex-row justify-between">
+		<div class="flex">
 			<a href="/" class=" text-lg flex gap-2 items-center justify-center">
 				<img src="/250x250.png" alt="edsail logo" class="w-10 h-10" />
 				<span>Edsail</span>

@@ -3,11 +3,11 @@
 
 	let {
 		class: className = '',
-		title = 'Button',
-		onclick = () => undefined
+		onclick = () => undefined,
+		children
 	}: Partial<HTMLButtonAttributes> = $props();
 </script>
 
-<button class=" rounded bg-blue-100 cursor-pointer hover:scale-105 {className}" {onclick}
-	>{title}</button
->
+<button class="rounded bg-blue-100 cursor-pointer hover:scale-105 {className}" {onclick}>
+	{@render children?.()}
+</button>

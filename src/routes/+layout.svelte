@@ -11,7 +11,9 @@
 </svelte:head>
 
 <Background />
-<Header />
-<div class="container flex-col">
-	{@render children()}
+<Header class="h-[6vh]" />
+<div class="h-[93vh] mt-[6vh] scroll-hide">
+	<div class="container">
+		{@render children()}
+	</div>
 </div>
