@@ -9,6 +9,9 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
+
 <Background />
 <Header />
-{@render children()}
+<div class="container flex-col">
+	{@render children()}
+</div>

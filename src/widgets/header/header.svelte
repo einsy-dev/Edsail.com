@@ -1,36 +1,41 @@
 <script lang="ts">
-	import { UserRound } from "@lucide/svelte";
+	import { UserRound } from '@lucide/svelte';
 
 	const routes = [
 		{ title: 'Blog', path: '/blog' },
-		{ title: 'Partfolio', path: '/partfolio' },
+		{ title: 'Projects', path: '/projects' },
 		{ title: 'Contacts', path: '/contacts' },
 		{ title: 'Prices', path: '/prices' },
 		{ title: 'Services', path: '/services' }
 	];
 </script>
 
-<header class="flex grow justify-center backdrop-blur-xs border-white/20">
-	<div class="max-w-225 flex grow items-center justify-between">
+<header class="flex p-1 justify-center glass">
+	<div class="container justify-between">
 		<div class="">
-			<a href="/" class="flex gap-2 items-center justify-center">
+			<a href="/" class=" text-lg flex gap-2 items-center justify-center">
 				<img src="/250x250.png" alt="edsail logo" class="w-10 h-10" />
 				<span>Edsail</span>
 			</a>
 		</div>
-		<nav>
-			<div class="">
-				<ul class="flex gap-4">
+		<div class="flex gap-2 items-center">
+			<nav>
+				<ul class="flex gap-4 justify-center">
 					{#each routes as route}
 						<li>
-							<a href={route.path}>{route.title}</a>
+							<a
+								class="text-lg underline decoration-cyan-400 decoration-2 underline-offset-5 hover:underline-offset-2 transition-all"
+								href={route.path}>{route.title}</a
+							>
 						</li>
 					{/each}
 				</ul>
+			</nav>
+			<div class="flex items-center">
+				<a href="/auth/login" class="cursor-pointer hover:scale-105 rounded-full p-1">
+					<UserRound class="w-6 h-6" />
+				</a>
 			</div>
-		</nav>
-		<div class="">
-			<UserRound />
 		</div>
 	</div>
 </header>
