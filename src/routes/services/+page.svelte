@@ -1,3 +1,3 @@
 <script lang="ts"></script>
 
-<div class="">Blog</div>
+<div class="">Services</div>

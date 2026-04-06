@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { UserRound } from '@lucide/svelte';
 
 	let { class: className = '' } = $props();
-
+	let path = $derived(page.route.id);
 	const routes = [
 		{ title: 'Admin', path: '/admin' },
 		{ title: 'Blog', path: '/blog' },
@@ -11,6 +12,8 @@
 		{ title: 'Prices', path: '/prices' },
 		{ title: 'Services', path: '/services' }
 	];
+
+	const active = 'bg-card glass rounded-md';
 </script>
 
 <header class="fixed inset-0 z-50 glass {className} flex flex-1">
@@ -27,7 +30,7 @@
 					{#each routes as route}
 						<li>
 							<a
-								class="text-lg underline decoration-cyan-400 decoration-2 underline-offset-5 hover:underline-offset-2 transition-all"
+								class="text-lg hover:{active} {path == route.path ? active : ''} px-4 py-2"
 								href={route.path}>{route.title}</a
 							>
 						</li>

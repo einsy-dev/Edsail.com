@@ -6,7 +6,7 @@
 </script>
 
 <div class="flex flex-1 items-center justify-center">
-	<div class="flex flex-col items-center gap-10 glass rounded px-8 py-4 bg-card rounded-xl">
+	<div class="flex flex-col items-center gap-10 glass px-8 py-4 bg-card rounded-xl">
 		<div class="">
 			{page.params.type == 'login' ? 'Login' : 'Registration'}
 		</div>

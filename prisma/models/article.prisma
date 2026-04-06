@@ -1,0 +1,10 @@
+model Article {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  content     String
+  slug        String   @unique
+  keywords    String[]
+  category    String[]
+  // category Category
+}

@@ -5,7 +5,7 @@
 		{ title: 'Users', path: '/admin/users', icon: Users },
 		{ title: 'Blog', path: '/admin/blog', icon: Newspaper },
 		{ title: 'Projects', path: '/admin/projects', icon: LayoutGrid },
-		{ title: 'Services', path: '/', icon: Box }
+		{ title: 'Services', path: '/admin/services', icon: Box }
 	];
 </script>
 

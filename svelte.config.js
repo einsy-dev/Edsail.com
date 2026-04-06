@@ -12,6 +12,7 @@ const config = {
 			$shared: 'src/shared',
 			$actions: 'src/shared/actions',
 			$widgets: 'src/widgets',
+			$prisma: "prisma/generated"
 		}
 	}
 };

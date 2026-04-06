@@ -1,5 +1,9 @@
 node_modules
 
+src/lib/prisma/
+prisma/migrations/
+
+
 # Output
 .output
 .vercel

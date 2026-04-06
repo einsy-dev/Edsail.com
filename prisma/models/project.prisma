@@ -1,0 +1,19 @@
+model Project {
+  id          String    @id @default(cuid())
+  title       String
+  description String
+  content     String
+  slug        String    @unique
+  keywords    String[]
+  category    String[]
+  versions    Version[]
+}
+
+model Version {
+  id          String   @id @default(cuid())
+  project     Project? @relation(fields: [projectId], references: [id])
+  projectId   String?
+  title       String
+  description String
+  file        String
+}

@@ -4,7 +4,7 @@
 	let { children } = $props();
 </script>
 
-<div class="gap-4 flex">
+<div class="gap-4 flex flex-1">
 	<Sidebar />
 	<!-- <div class="scrollbar-hide"> -->
 	{@render children()}
