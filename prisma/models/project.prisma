@@ -7,6 +7,17 @@ model Project {
   keywords    String[]
   category    String[]
   versions    Version[]
+  docs        Docs[]
+}
+
+model Docs {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  content     String
+  slug        String   @unique
+  project     Project? @relation(fields: [projectId], references: [id])
+  projectId   String?
 }
 
 model Version {

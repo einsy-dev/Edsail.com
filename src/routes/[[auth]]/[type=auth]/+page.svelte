@@ -2,7 +2,18 @@
 	import { page } from '$app/state';
 	import { Button, Input } from '$shared/ui';
 
-	let value = $state({ email: '', username: '', password: '' });
+	let value = $state({ email: '', name: '', password: '' });
+
+	function handleForm() {
+		fetch(`/api/auth/${page.params.type}`, {
+			method: 'POST',
+			body: JSON.stringify(value),
+			headers: { 'Content-Type': 'application/json' }
+		})
+			.then((res) => res.json())
+			.then((res) => console.log(JSON.parse(res.message)[0]))
+			.catch((err) => err);
+	}
 </script>
 
 <div class="flex flex-1 items-center justify-center">
@@ -11,10 +22,10 @@
 			{page.params.type == 'login' ? 'Login' : 'Registration'}
 		</div>
 		<form action="" onsubmit={() => {}} class="flex flex-col gap-4">
-			<Input label="Username" type="username" bind:value={value.username} />
+			<Input label="Username" type="username" bind:value={value.name} />
 			<Input label="Email" type="email" placeholder="example@gmail.com" bind:value={value.email} />
 			<Input label="Password" type="password" bind:value={value.password} />
-			<Button>{page.params.type == 'login' ? 'Login' : 'Register'}</Button>
+			<Button onclick={handleForm}>{page.params.type == 'login' ? 'Login' : 'Register'}</Button>
 		</form>
 		<div class="">
 			{#if page.params.type == 'login'}

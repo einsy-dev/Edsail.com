@@ -25,6 +25,7 @@
 		"@sveltejs/vite-plugin-svelte": "^7.0.0",
 		"@tailwindcss/vite": "^4.2.2",
 		"@trivago/prettier-plugin-sort-imports": "^6.0.2",
+		"@types/js-cookie": "^3.0.6",
 		"@types/node": "^25.5.2",
 		"@types/pg": "^8.20.0",
 		"eslint": "^10.1.0",
@@ -48,9 +49,12 @@
 		"@prisma/adapter-pg": "^7.6.0",
 		"@prisma/client": "^7.6.0",
 		"animejs": "^4.3.6",
+		"axios": "^1.14.0",
 		"dotenv": "^17.4.0",
+		"js-cookie": "^3.0.5",
 		"konva": "^10.2.3",
 		"pg": "^8.20.0",
-		"svelte-konva": "^1.0.1"
+		"svelte-konva": "^1.0.1",
+		"zod": "^4.3.6"
 	}
 }
