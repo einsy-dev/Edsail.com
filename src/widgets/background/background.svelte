@@ -77,7 +77,7 @@
 
 <svelte:window bind:innerWidth={config.width} bind:innerHeight={config.height} />
 
-<div class="absolute inset-0 -z-50 bg-[rgba(248,252,255,1)]">
+<div class="fixed inset-0 -z-50 bg-primary">
 	{#if browser}
 		<Stage {...config}>
 			<Layer>
@@ -86,7 +86,13 @@
 				{/each}
 
 				{#each list as item (item.id)}
-					<Circle bind:this={item.component} x={item.x} y={item.y} radius={2} fill="rgba(28, 58, 106, 0.5)" />
+					<Circle
+						bind:this={item.component}
+						x={item.x}
+						y={item.y}
+						radius={2}
+						fill="rgba(28, 58, 106, 0.5)"
+					/>
 				{/each}
 			</Layer>
 		</Stage>

@@ -5,7 +5,7 @@
 	let value = $state('');
 </script>
 
-<div class="flex flex-1 justify-between">
+<div class="flex-scroll flex-col justify-between overflow-y-scroll scroll-hide">
 	<HTMLInput bind:value />
 	<div class="bg-card glass">
 		<ul>

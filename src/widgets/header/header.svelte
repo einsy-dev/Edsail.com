@@ -1,46 +1,58 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { UserRound } from '@lucide/svelte';
+	import { headerHeight, sidebarStore, type SidebarState } from '$shared/store';
+	import { Button } from '$shared/ui';
+	import Logo from './logo/logo.svelte';
+	import Route from './route/route.svelte';
+	import User from './user/user.svelte';
+	import { Menu } from '@lucide/svelte';
+	import { onMount, tick } from 'svelte';
 
-	let { class: className = '' } = $props();
+	let { class: className = '' }: { class?: string } = $props();
+
+	let clientHeight = $state(0);
+
+	$effect(() => {
+		headerHeight.set(clientHeight);
+	});
+
+	let innerWidth = $state(0);
 	let path = $derived(page.route.id);
-	const routes = [
-		{ title: 'Admin', path: '/admin' },
-		{ title: 'Blog', path: '/blog' },
-		{ title: 'Projects', path: '/projects' },
-		{ title: 'Contacts', path: '/contacts' },
-		{ title: 'Prices', path: '/prices' },
-		{ title: 'Services', path: '/services' }
-	];
+
+	let sidebar: SidebarState | undefined = $state();
+	sidebarStore.subscribe((state) => {
+		sidebar = state;
+	});
 
 	const active = 'bg-card glass rounded-md';
 </script>
 
-<header class="fixed inset-0 z-50 glass {className} flex flex-1">
-	<div class="container flex flex-row justify-between">
-		<div class="flex">
-			<a href="/" class=" text-lg flex gap-2 items-center justify-center">
-				<img src="/250x250.png" alt="edsail logo" class="w-10 h-10" />
-				<span>Edsail</span>
-			</a>
-		</div>
-		<div class="flex gap-2 items-center">
-			<nav>
-				<ul class="flex gap-4 justify-center">
-					{#each routes as route}
-						<li>
-							<a
-								class="text-lg hover:{active} {path == route.path ? active : ''} px-4 py-2"
-								href={route.path}>{route.title}</a
-							>
-						</li>
-					{/each}
-				</ul>
-			</nav>
-			<div class="flex items-center">
-				<a href="/auth/login" class="cursor-pointer hover:scale-105 rounded-full p-1">
-					<UserRound class="w-6 h-6" />
-				</a>
+<svelte:window bind:innerWidth />
+<header class="fixed inset-0 h-fit z-50 glass bg-card {className}" bind:clientHeight>
+	<div class="container py-1">
+		<div class=" flex flex-row justify-between">
+			<Logo />
+			<div class="flex items-center justify-center">
+				{#if innerWidth <= 768}
+					<Button
+						onclick={() => {
+							sidebarStore.update((s) => ({ ...s, active: !s.active }));
+						}}
+					>
+						<Menu class="icon-2" />
+					</Button>
+				{:else}
+					<div class="flex gap-2 items-center">
+						<nav>
+							<ul class="flex gap-4 justify-center">
+								{#each sidebar?.menu as route}
+									<Route href={route.path}>{route.title}</Route>
+								{/each}
+							</ul>
+						</nav>
+						<User />
+					</div>
+				{/if}
 			</div>
 		</div>
 	</div>

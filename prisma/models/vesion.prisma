@@ -1,0 +1,13 @@
+model Version {
+  id       String  @id @default(cuid())
+  major    Int
+  minor    Int
+  patch    Int
+  file     String?
+  policy   Policy? @relation(fields: [policyId], references: [id])
+  policyId String?
+	@@unique([policyId, major, minor, patch])
+  app      App?    @relation(fields: [appId], references: [id])
+  appId    String?
+	@@unique([appId, major, minor, patch])
+}

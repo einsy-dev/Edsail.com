@@ -1,0 +1,14 @@
+model Policy {
+  id        String     @id @default(cuid())
+  content   String
+  versions  Version[]
+  type      PolicyType
+  project   Project?   @relation(fields: [projectId], references: [id])
+  projectId String?
+}
+
+enum PolicyType {
+  PrivacyPolicy
+  TermsOfService
+  CookiePolicu
+}
