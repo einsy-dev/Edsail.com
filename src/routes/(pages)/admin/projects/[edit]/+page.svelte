@@ -1,3 +1,3 @@
 <script lang="ts"></script>
 
-<div class="">Prices</div>
+<div class="">Edit</div>

@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { headerHeight, sidebarStore, type SidebarState } from '$shared/store';
+	import { headerRoutes } from '$shared/store/routes';
 	import { Button } from '$shared/ui';
+	import { sidebarState, type SidebarStateT } from '$widgets/sidebar/sidebar';
+	import { headerHeight } from './header';
 	import Logo from './logo/logo.svelte';
 	import Route from './route/route.svelte';
 	import User from './user/user.svelte';
@@ -17,12 +19,6 @@
 	});
 
 	let innerWidth = $state(0);
-	let path = $derived(page.route.id);
-
-	let sidebar: SidebarState | undefined = $state();
-	sidebarStore.subscribe((state) => {
-		sidebar = state;
-	});
 
 	const active = 'bg-card glass rounded-md';
 </script>
@@ -36,7 +32,7 @@
 				{#if innerWidth <= 768}
 					<Button
 						onclick={() => {
-							sidebarStore.update((s) => ({ ...s, active: !s.active }));
+							sidebarState.update((s) => ({ ...s, active: !s.active }));
 						}}
 					>
 						<Menu class="icon-2" />
@@ -45,7 +41,7 @@
 					<div class="flex gap-2 items-center">
 						<nav>
 							<ul class="flex gap-4 justify-center">
-								{#each sidebar?.menu as route}
+								{#each headerRoutes as route}
 									<Route href={route.path}>{route.title}</Route>
 								{/each}
 							</ul>

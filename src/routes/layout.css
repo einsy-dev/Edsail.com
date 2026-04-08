@@ -39,6 +39,6 @@
 }
 
 .card {
-	@apply rounded-xl bg-card p-2;
+	@apply rounded-lg bg-card p-2;
 	@apply border-white/20 backdrop-blur-xs;
 }

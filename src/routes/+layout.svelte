@@ -1,12 +1,22 @@
 <script lang="ts">
+	import { afterNavigate } from '$app/navigation';
+	import { page } from '$app/state';
 	import favicon from '$lib/assets/favicon.svg';
-	import { headerHeight } from '$shared/store';
-	import { Header, Background, Sidebar, Toc } from '$widgets';
+	import { getRoutes } from '$shared/store/routes';
+	import { Header, Background } from '$widgets';
+	import { headerHeight } from '$widgets/header/header';
+	import { sidebarState } from '$widgets/sidebar/sidebar';
 	import './layout.css';
 
 	let { children } = $props();
 	let margin: number = $state(0);
 	headerHeight.subscribe((h) => (margin = h));
+	afterNavigate(() => {
+		sidebarState.update((state) => ({
+			...state,
+			items: getRoutes(page.url.pathname)
+		}));
+	});
 </script>
 
 <svelte:head>
