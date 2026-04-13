@@ -1,4 +1,4 @@
-model App {
+model File {
   id          String    @id @default(cuid())
   title       String
   description String

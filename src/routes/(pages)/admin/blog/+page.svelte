@@ -1,12 +1,7 @@
 <script lang="ts">
-	import { HTMLInput } from '$widgets';
-	import { Card } from '$widgets/admin';
-
-	let value = $state('');
 </script>
 
 <div class="flex-scroll flex-col justify-between overflow-y-scroll scroll-hide">
-	<HTMLInput bind:value />
 	<div class="bg-card glass">
 		<ul>
 			<li></li>

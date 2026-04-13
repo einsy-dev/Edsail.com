@@ -1,9 +1,9 @@
 <script lang="ts">
+	import { type InputI } from '../input';
 	import Input from '../input/input.svelte';
 	import { Eye, EyeClosed, LockKeyhole } from '@lucide/svelte';
-	import type { HTMLInputAttributes } from 'svelte/elements';
 
-	let { value = $bindable(), placeholder = '' }: HTMLInputAttributes = $props();
+	let { value = $bindable(), placeholder = '' }: InputI['password'] = $props();
 
 	let hidden = $state(true);
 </script>
@@ -13,9 +13,9 @@
 	<Input type={hidden ? 'password' : 'text'} {placeholder} bind:value />
 	<button class="" onclick={() => (hidden = !hidden)}>
 		{#if hidden}
-			<EyeClosed class="icon"/>
+			<EyeClosed class="icon" />
 		{:else}
-			<Eye class="icon"/>
+			<Eye class="icon" />
 		{/if}
 	</button>
 </div>

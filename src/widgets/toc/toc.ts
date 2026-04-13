@@ -1,8 +1,16 @@
+import type { Snippet } from 'svelte';
 import { writable } from 'svelte/store';
 
-export type TocStateT = {
+type TocStateData = {
 	title: string;
 	path: string;
-	items?: Omit<TocStateT, 'items'>[];
+	items?: Omit<TocStateData, 'items'>[];
 };
-export const tocState = writable<TocStateT[]>([]);
+
+export type TocStateT = {
+	data: TocStateData[];
+	children?: Snippet | Snippet[];
+};
+export const tocState = writable<TocStateT>({
+	data: []
+});

@@ -13,7 +13,8 @@ const config = {
 			$actions: 'src/shared/actions',
 			$widgets: 'src/widgets',
 			$prisma: "src/lib/prisma",
-			$zod: "src/lib/zod"
+			$zod: "src/lib/zod",
+			$axios: "src/lib/axios"
 		}
 	}
 };

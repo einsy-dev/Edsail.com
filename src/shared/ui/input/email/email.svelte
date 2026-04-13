@@ -1,9 +1,9 @@
 <script lang="ts">
+	import { type InputI } from '../input';
 	import Input from '../input/input.svelte';
 	import { AtSign } from '@lucide/svelte';
-	import type { HTMLInputAttributes } from 'svelte/elements';
 
-	let { value = $bindable(), placeholder = '' }: HTMLInputAttributes = $props();
+	let { value = $bindable(), placeholder = '' }: InputI['email'] = $props();
 </script>
 
 <div class="flex items-center justify-center">

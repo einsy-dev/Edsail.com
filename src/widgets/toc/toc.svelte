@@ -3,19 +3,19 @@
 
 	let { class: className = '' } = $props();
 
-	let routes: TocStateT[] = $state([]);
+	let state: TocStateT | undefined = $state();
 
 	tocState.subscribe((data) => {
-		routes = data;
+		state = data;
 	});
 </script>
 
 <aside class="p-2 h-fit {className}">
-	{#if routes.length}
+	{#if state?.data.length}
 		<h2 class="text-center font-bold">Table of contents</h2>
 		<div class="">
 			<ul>
-				{#each routes as route}
+				{#each state.data as route}
 					<li class="">
 						<a href={route.path}>{route.title}</a>
 						{#if route.items?.length}
@@ -31,5 +31,13 @@
 				{/each}
 			</ul>
 		</div>
+	{/if}
+		
+	{#if Array.isArray(state?.children)}
+		{#each state.children as children}
+			{@render children()}
+		{/each}
+	{:else}
+		{@render state?.children?.()}
 	{/if}
 </aside>

@@ -1,1 +1,5 @@
-export async function GET(params) {}
+import { json } from '@sveltejs/kit';
+
+export async function GET(params) {
+	return json({});
+}

@@ -1,23 +1,19 @@
-<script lang="ts">
+<script lang="ts" generics="T extends keyof InputI">
 	import Email from './email/email.svelte';
+	import File from './file/file.svelte';
+	import Html from './html/html.svelte';
+	import type { InputI, InputIDef } from './input';
 	import { default as DefInput } from './input/input.svelte';
 	import Label from './label/label.svelte';
 	import Password from './password/password.svelte';
+	import Select from './select/select.svelte';
 	import Username from './username/username.svelte';
 	import type { Component } from 'svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
-	let {
-		value = $bindable(),
-		placeholder = '',
-		label = '',
-		type = 'text'
-	}: HTMLInputAttributes & {
-		label: string;
-		type: HTMLInputAttributes['type'] | 'username';
-	} = $props();
+	let { value = $bindable(), ...props }: InputI[T] | InputIDef = $props();
 
-	let InputComponent = $derived(switchInput(type));
+	let InputComponent = $derived(switchInput(props.type));
 
 	function switchInput(type: HTMLInputAttributes['type']): Component<any> {
 		switch (type) {
@@ -27,12 +23,18 @@
 				return Email;
 			case 'username':
 				return Username;
+			case 'html':
+				return Html;
+			case 'file':
+				return File;
+			case 'select':
+				return Select;
 			default:
 				return DefInput;
 		}
 	}
 </script>
 
-<Label title={label}>
-	<InputComponent bind:value {placeholder} {type} />
+<Label title={props.label}>
+	<InputComponent bind:value {...props} />
 </Label>

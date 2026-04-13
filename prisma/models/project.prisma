@@ -1,12 +1,21 @@
 model Project {
-  id          String   @id @default(cuid())
-  title       String
-  description String
-  content     String
-  slug        String   @unique
-  keywords    String[]
-  category    String[]
-  apps        App[]
-  docs        Docs[]
-  policies    Policy[]
+  id             String        @id @default(cuid())
+  title          String
+  description    String?
+  content        String?
+  slug           String        @unique
+  keywords       String[]
+  category       String[]
+  images         String[]
+  icon           String?
+  files          File[]
+  docs           Docs[]
+  policies       Policy[]
+  projectGroup   ProjectGroup? @relation(fields: [projectGroupId], references: [id])
+  projectGroupId String?
+}
+
+model ProjectGroup {
+  id       String    @id @default(cuid())
+  projects Project[]
 }
