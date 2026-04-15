@@ -3,7 +3,7 @@
 	import { page } from '$app/state';
 	import favicon from '$lib/assets/favicon.svg';
 	import { getRoutes } from '$shared/store/routes';
-	import { Header, Background } from '$widgets';
+	import { Header, Background, Portal } from '$widgets';
 	import { headerHeight } from '$widgets/header/header';
 	import { sidebarState } from '$widgets/sidebar/sidebar';
 	import './layout.css';
@@ -25,6 +25,9 @@
 
 <Background />
 <Header />
-<div class="flex-scroll py-2" style:margin-top="{margin}px">
-	{@render children()}
+<Portal />
+<div class="py-2 flex flex-1">
+	<div class="flex-scroll" style:margin-top="{margin}px">
+		{@render children()}
+	</div>
 </div>

@@ -8,6 +8,6 @@
 	}: Partial<HTMLButtonAttributes> = $props();
 </script>
 
-<button class="rounded bg-blue-100 cursor-pointer hover:scale-105 {className}" {onclick}>
+<button class="rounded cursor-pointer hover:scale-105 {className}" {onclick}>
 	{@render children?.()}
 </button>

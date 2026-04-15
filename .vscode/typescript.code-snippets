@@ -8,5 +8,57 @@
     ],
     "description": "",
     "scope": "typescript, typescriptreact"
+  },
+  "api": {
+    "prefix": [
+      "api"
+    ],
+    "body": [
+      "import { json } from '@sveltejs/kit';\r",
+      "\r",
+      "export async function POST({ request }) {\r",
+      "\treturn json({});\r",
+      "}\r",
+      "\r",
+      "export async function GET({ request }) {\r",
+      "\treturn json({});\r",
+      "}\r",
+      "\r",
+      "export async function PUT({ request }) {\r",
+      "\treturn json({});\r",
+      "}\r",
+      "\r",
+      "export async function DELETE({ request }) {\r",
+      "\treturn json({});\r",
+      "}"
+    ],
+    "description": "",
+    "scope": "typescript, typescriptreact"
+  },
+  "apiParams": {
+    "prefix": [
+      "apip"
+    ],
+    "body": [
+      "import { json } from '@sveltejs/kit';\r",
+      "\r",
+      "export async function POST({ request, params }) {\r",
+      "\treturn json({});\r",
+      "}\r",
+      "\r",
+      "export async function GET({ request, params }) {\r",
+      "\treturn json({});\r",
+      "}\r",
+      "\r",
+      "export async function PUT({ request, params }) {\r",
+      "\treturn json({});\r",
+      "}\r",
+      "\r",
+      "export async function DELETE({ request, params }) {\r",
+      "\treturn json({});\r",
+      "}"
+    ],
+    "description": "",
+    "scope": "typescript, typescriptreact"
   }
 }

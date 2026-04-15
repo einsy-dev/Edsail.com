@@ -59,7 +59,7 @@
 		active = false;
 		handleFiles(e.dataTransfer?.files);
 	}}
-	class="cursor-pointer {className}"
+	class="cursor-pointer overflow-hidden rounded-xl {className}"
 >
 	<div class="relative">
 		<input type="file" multiple hidden onchange={handleInput} />
@@ -68,7 +68,7 @@
 			class="absolute inset-0 z-50 flex items-center justify-center bg-black/50"
 			hidden={!active}
 		>
-			<FilePlus class="icon" />
+			<FilePlus class="icon-1 stroke-white" />
 		</div>
 	</div>
 </label>

@@ -12,9 +12,10 @@ const config = {
 			$shared: 'src/shared',
 			$actions: 'src/shared/actions',
 			$widgets: 'src/widgets',
-			$prisma: "src/lib/prisma",
+			$axios: "src/lib/axios",
 			$zod: "src/lib/zod",
-			$axios: "src/lib/axios"
+			$prisma: "src/lib/server/prisma",
+			$services: "src/lib/server/services"
 		}
 	}
 };

@@ -1,21 +1,52 @@
 import { $authHost } from '$axios';
+import type { ProjectSchemaI } from '$lib/zod';
 
-class Project {
+class AxiosProject {
 	#host = $authHost;
 
-	async createProject(payload: { [key: string]: any }) {
+	async get(slug: string) {
+		let { data } = await this.#host.get('projects/' + slug);
+
+		return data;
+	}
+
+	async getAll(): Promise<ProjectSchemaI[]> {
+		let { data } = await this.#host.get('projects');
+
+		return data;
+	}
+
+	async create(payload: { [key: string]: any }) {
 		const formData = new FormData();
 
 		for (let key in payload) {
+			if (key == 'images') {
+				payload[key].forEach((f: File) => formData.append(key, f));
+				continue;
+			}
 			formData.append(key, payload[key]);
 		}
 
-		formData.forEach((value, key) => {
-			console.log(`${key}:`, value);
-		});
+		let { data } = await this.#host.post('admin/projects/create', formData);
 
-		let data = await this.#host.post('admin/projects', formData);
+		return data;
+	}
+
+	async update(slug: string, payload: { [key: string]: any }) {
+		const formData = new FormData();
+
+		for (let key in payload) {
+			if (key == 'images') {
+				payload[key].forEach((f: File) => formData.append(key, f));
+				continue;
+			}
+			formData.append(key, payload[key]);
+		}
+
+		let { data } = await this.#host.put('admin/projects/' + slug, formData);
+
+		return data;
 	}
 }
 
-export default new Project();
+export const Project = new AxiosProject();

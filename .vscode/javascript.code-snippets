@@ -8,5 +8,57 @@
     ],
     "description": "",
     "scope": "javascript, javascriptreact"
+  },
+  "api": {
+    "prefix": [
+      "api"
+    ],
+    "body": [
+      "import { json } from \"@sveltejs/kit\";",
+      "",
+      "export async function POST({ request }) {",
+      "  return json({});",
+      "}",
+      "",
+      "export async function GET({ request }) {",
+      "  return json({});",
+      "}",
+      "",
+      "export async function PUT({ request }) {",
+      "  return json({});",
+      "}",
+      "",
+      "export async function DELETE({ request }) {",
+      "  return json({});",
+      "}"
+    ],
+    "description": "",
+    "scope": "javascript, javascriptreact"
+  },
+  "apiParams": {
+    "prefix": [
+      "apip"
+    ],
+    "body": [
+      "import { json } from \"@sveltejs/kit\";",
+      "",
+      "export async function POST({ request, params }) {",
+      "  return json({});",
+      "}",
+      "",
+      "export async function GET({ request, params }) {",
+      "  return json({});",
+      "}",
+      "",
+      "export async function PUT({ request, params }) {",
+      "  return json({});",
+      "}",
+      "",
+      "export async function DELETE({ request, params }) {",
+      "  return json({});",
+      "}"
+    ],
+    "description": "",
+    "scope": "javascript, javascriptreact"
   }
 }

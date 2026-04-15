@@ -1,4 +1,4 @@
-import { UserLoginSchema } from '$zod/user.js';
+import { UserLoginSchema } from '$lib/server/zod/user.js';
 import { json } from '@sveltejs/kit';
 
 export async function POST({ request, params }) {

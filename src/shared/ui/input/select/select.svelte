@@ -28,6 +28,8 @@
 				onmousedown={(e) => {
 					e.preventDefault();
 					(opt.callback || defCallback)(opt.value);
+					if (multiple) return;
+					active = false;
 				}}
 				role="none"
 				class="text-nowrap text-sm"

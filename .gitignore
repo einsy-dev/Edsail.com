@@ -2,7 +2,7 @@ node_modules
 
 src/lib/prisma
 prisma/migrations
-
+static/test
 
 # Output
 .output

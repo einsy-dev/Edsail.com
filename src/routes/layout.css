@@ -34,6 +34,10 @@
 	@apply h-5 w-5;
 }
 
+.icon-3 {
+	@apply h-6 w-6;
+}
+
 .glass {
 	@apply border-white/20 backdrop-blur-xs;
 }
