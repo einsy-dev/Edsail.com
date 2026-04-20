@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Input } from '$shared/ui';
+	import { Input } from '$shared';
 	import Image from './image/image.svelte';
 
 	let { value = $bindable([]) }: { value: (string | File)[] } = $props();

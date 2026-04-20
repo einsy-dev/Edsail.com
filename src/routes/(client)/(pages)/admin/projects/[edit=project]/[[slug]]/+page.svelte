@@ -2,9 +2,9 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import { Project } from '$axios/project';
-	import { Button } from '$shared/ui';
-	import { debounce } from '$shared/utils';
-	import IDB from '$shared/utils/database';
+	import { Button } from '$shared';
+	import { debounce } from '$utils';
+	import IDB from '$utils/database';
 	import type { ProjectFormI } from '$widgets/admin/projects/form/form';
 	import Form from '$widgets/admin/projects/form/form.svelte';
 	import { tocState } from '$widgets/toc/toc';

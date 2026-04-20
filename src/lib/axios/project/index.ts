@@ -1,5 +1,5 @@
 import { $authHost } from '$axios';
-import type { ProjectSchemaI } from '$lib/zod';
+import type { ProjectSchemaI } from '$lib/server/zod';
 
 class AxiosProject {
 	#host = $authHost;
@@ -46,6 +46,12 @@ class AxiosProject {
 		let { data } = await this.#host.put('admin/projects/' + slug, formData);
 
 		return data;
+	}
+
+	async hide(id: string) {}
+
+	async delete(id: string) {
+		return await this.#host.delete('admin/projects/' + id);
 	}
 }
 

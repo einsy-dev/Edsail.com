@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { Button, Input } from '$shared/ui';
+	import { Button, Input } from '$shared';
 
 	let value = $state({ email: '', name: '', password: '' });
 

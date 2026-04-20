@@ -1,5 +1,5 @@
 import { ProjectService } from '$services';
-import { ProjectCreateSchema, type ProjectCreateSchemaI } from '$lib/zod';
+import { ProjectCreateSchema, type ProjectCreateSchemaI } from '$lib/server/zod';
 import { json } from '@sveltejs/kit';
 
 export async function POST({ request }) {

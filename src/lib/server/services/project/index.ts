@@ -1,6 +1,6 @@
+import type { ProjectCreateSchemaI, ProjectSchemaI } from '$lib/server/zod';
 import prisma from '$prisma';
-import type { One } from '$shared/types/route';
-import type { ProjectCreateSchemaI, ProjectSchemaI } from '$lib/zod';
+import type { One } from '$types';
 import { parseRequest } from './parseRequest';
 
 class ProjectService {
@@ -20,6 +20,10 @@ class ProjectService {
 
 	update(params: One<Pick<ProjectSchemaI, 'id' | 'slug'>>, data: ProjectSchemaI) {
 		return prisma.project.update({ where: params, data });
+	}
+
+	delete(params: One<Pick<ProjectSchemaI, 'id' | 'slug'>>) {
+		return prisma.project.delete({ where: params });
 	}
 }
 

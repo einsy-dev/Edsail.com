@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Input } from '$shared/ui';
+	import { Input } from '$shared';
 	import type { ProjectFormI } from './form';
 	import Icon from './icon/icon.svelte';
 	import Images from './images/images.svelte';

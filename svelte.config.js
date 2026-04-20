@@ -1,6 +1,5 @@
 import adapter from '@sveltejs/adapter-node';
 
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
@@ -9,13 +8,15 @@ const config = {
 		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter(),
 		alias: {
-			$shared: 'src/shared',
-			$actions: 'src/shared/actions',
+			$axios: 'src/lib/axios',
+			$zod: 'src/lib/server/zod',
+			$prisma: 'src/lib/server/prisma',
+			$services: 'src/lib/server/services',
 			$widgets: 'src/widgets',
-			$axios: "src/lib/axios",
-			$zod: "src/lib/zod",
-			$prisma: "src/lib/server/prisma",
-			$services: "src/lib/server/services"
+			$shared: 'src/shared/ui',
+			$actions: 'src/shared/actions',
+			$utils: 'src/shared/utils',
+			$types: 'src/shared/types'
 		}
 	}
 };

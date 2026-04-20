@@ -1,4 +1,4 @@
-import { ProjectSchema, type ProjectSchemaI } from '$lib/zod';
+import { ProjectSchema, type ProjectSchemaI } from '$lib/server/zod';
 import ProjectService from '$services/project';
 import { json } from '@sveltejs/kit';
 
@@ -17,5 +17,6 @@ export async function GET({ request, params }) {
 }
 
 export async function DELETE({ request, params }) {
-	return json({});
+	const res = await ProjectService.delete({ id: params.id });
+	return json(res, { status: 200 });
 }

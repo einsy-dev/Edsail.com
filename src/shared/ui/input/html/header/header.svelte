@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Input } from '$shared/ui';
+	import { Button, Input } from '$shared';
 
 	let { input = $bindable(), value = $bindable() } = $props();
 

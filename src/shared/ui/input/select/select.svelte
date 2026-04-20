@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { clickOutside } from '$shared/actions/clickOutside';
+	import { clickOutside } from '$actions/clickOutside';
 	import type { InputI } from '../input';
 
 	let { value = $bindable(), multiple = false, data }: InputI['select'] = $props();

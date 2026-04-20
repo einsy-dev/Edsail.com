@@ -1,14 +1,12 @@
 <script lang="ts">
-	import { page } from '$app/state';
-	import { headerRoutes } from '$shared/store/routes';
-	import { Button } from '$shared/ui';
-	import { sidebarState, type SidebarStateT } from '$widgets/sidebar/sidebar';
+	import { headerRoutes } from '$lib/router';
+	import { Button } from '$shared';
+	import { sidebarState } from '$widgets/sidebar/sidebar';
 	import { headerHeight } from './header';
 	import Logo from './logo/logo.svelte';
 	import Route from './route/route.svelte';
 	import User from './user/user.svelte';
 	import { Menu } from '@lucide/svelte';
-	import { onMount, tick } from 'svelte';
 
 	let { class: className = '' }: { class?: string } = $props();
 
@@ -19,8 +17,6 @@
 	});
 
 	let innerWidth = $state(0);
-
-	const active = 'bg-card glass rounded-md';
 </script>
 
 <svelte:window bind:innerWidth />

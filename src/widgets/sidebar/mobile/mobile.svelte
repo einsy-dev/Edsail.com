@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { clickOutside } from '$actions/clickOutside';
 	import { headerHeight } from '$widgets/header/header';
-	import { sidebarState, type SidebarStateT } from '../sidebar';
+	import { sidebarState, type SidebarI } from '../sidebar';
 
-	let sidebar: SidebarStateT = $state({ active: false, items: [] });
+	let sidebar: SidebarI = $state({ active: false, blocks: [] });
 	sidebarState.subscribe((state) => (sidebar = state));
 
 	let headerH = $state(0);
@@ -22,7 +22,7 @@
 >
 	<div class="p-2! card h-full" use:clickOutside onclick_outside={toggleSidebar}>
 		<ul class="flex flex-col gap-2 h-full overflow-scroll scroll-hide">
-			{#each sidebar?.items as route}
+			{#each sidebar?.blocks[0] as route}
 				<li>
 					<a href={route.path} class="flex items-center gap-2 ps-2 pe-25 py-2 rounded">
 						<div class="">

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button } from '$shared/ui';
+	import { Button } from '$shared';
 	import Field from './field/field.svelte';
 	import { Menu } from '@lucide/svelte';
 

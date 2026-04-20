@@ -1,7 +1,6 @@
-import { page } from '$app/state';
-import type { Route } from '$shared/types/route';
+import type { SidebarRoute } from '$widgets/sidebar/sidebar';
 
-const routes: Route[] = [
+const routes: SidebarRoute[] = [
 	{
 		title: 'Admin',
 		path: '/admin',
@@ -42,8 +41,8 @@ const routes: Route[] = [
 	}
 ];
 
-export const headerRoutes: Route[] = routes.map(({ title, path }) => ({ title, path }));
+export const headerRoutes: SidebarRoute[] = routes.map(({ title, path }) => ({ title, path }));
 
-export function getRoutes(url: string): Route[] {
+export function getRoutes(url: string): SidebarRoute[] {
 	return routes.find((route) => url.includes(route.path))?.items || [];
 }

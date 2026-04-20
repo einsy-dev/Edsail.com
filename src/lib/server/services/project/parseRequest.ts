@@ -1,4 +1,4 @@
-import { handleFile } from '$shared/utils/server/handleFile';
+import { handleFile } from '$utils/server/handleFile';
 
 export async function parseRequest(request: Request) {
 	const formData = await request.formData();
