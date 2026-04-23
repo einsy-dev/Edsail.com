@@ -60,5 +60,17 @@
     ],
     "description": "",
     "scope": "javascript, javascriptreact"
+  },
+  "load": {
+    "prefix": [
+      "load"
+    ],
+    "body": [
+      "export const load = ({ params }) => {",
+      "  return {};",
+      "};"
+    ],
+    "description": "",
+    "scope": "javascript, javascriptreact"
   }
 }

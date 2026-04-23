@@ -1,5 +1,5 @@
-import { ProjectService } from '$services';
-import { ProjectCreateSchema, type ProjectCreateSchemaI } from '$lib/server/zod';
+import { ProjectCreateSchema, type ProjectCreateSchemaI } from '$lib/zod/index.js';
+import { ProjectService } from '$server/services';
 import { json } from '@sveltejs/kit';
 
 export async function POST({ request }) {
@@ -7,6 +7,7 @@ export async function POST({ request }) {
 		const body = await ProjectService.request(request);
 
 		const data: ProjectCreateSchemaI = ProjectCreateSchema.parse(body);
+
 		let res = await ProjectService.create(data);
 
 		return json(res, { status: 200 });

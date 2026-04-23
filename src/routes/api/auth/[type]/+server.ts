@@ -7,6 +7,5 @@ export async function POST({ request, params }) {
 	} catch (err) {
 		return json(err);
 	}
-	console.log(params, body);
 	return json({ status: 201 }, { status: 201 });
 }

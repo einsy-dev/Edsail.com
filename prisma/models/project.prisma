@@ -1,9 +1,9 @@
 model Project {
   id             String        @id @default(cuid())
-  title          String
+  title          String?
   description    String?
   content        String?
-  slug           String        @unique
+  slug           String?        @unique
   keywords       String[]
   category       String[]
   images         String[]

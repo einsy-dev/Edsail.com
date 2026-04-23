@@ -1,5 +1,5 @@
 import { $authHost } from '$axios';
-import type { ProjectSchemaI } from '$lib/server/zod';
+import type { ProjectSchemaI } from '$lib/zod';
 
 class AxiosProject {
 	#host = $authHost;
@@ -17,34 +17,12 @@ class AxiosProject {
 	}
 
 	async create(payload: { [key: string]: any }) {
-		const formData = new FormData();
-
-		for (let key in payload) {
-			if (key == 'images') {
-				payload[key].forEach((f: File) => formData.append(key, f));
-				continue;
-			}
-			formData.append(key, payload[key]);
-		}
-
-		let { data } = await this.#host.post('admin/projects/create', formData);
-
+		let { data } = await this.#host.post('admin/projects/create', handleForm(payload));
 		return data;
 	}
 
 	async update(slug: string, payload: { [key: string]: any }) {
-		const formData = new FormData();
-
-		for (let key in payload) {
-			if (key == 'images') {
-				payload[key].forEach((f: File) => formData.append(key, f));
-				continue;
-			}
-			formData.append(key, payload[key]);
-		}
-
-		let { data } = await this.#host.put('admin/projects/' + slug, formData);
-
+		let { data } = await this.#host.put('admin/projects/' + slug, handleForm(payload));
 		return data;
 	}
 
@@ -56,3 +34,16 @@ class AxiosProject {
 }
 
 export const Project = new AxiosProject();
+
+function handleForm(payload: { [key: string]: any }) {
+	const formData = new FormData();
+
+	for (let key in payload) {
+		if (key == 'images') {
+			payload[key].forEach((f: File | string) => f != '' && formData.append(key, f));
+			continue;
+		}
+		formData.append(key, payload[key]);
+	}
+	return formData;
+}

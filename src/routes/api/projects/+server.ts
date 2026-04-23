@@ -1,4 +1,4 @@
-import { ProjectService } from '$services';
+import { ProjectService } from '$server/services';
 import { json } from '@sveltejs/kit';
 
 export async function GET({ request }) {

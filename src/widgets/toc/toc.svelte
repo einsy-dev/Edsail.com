@@ -10,7 +10,7 @@
 	});
 </script>
 
-<aside class="p-2 h-fit {className}">
+<aside class="h-fit flex flex-col gap-2 {className}">
 	{#if state?.data.length}
 		<h2 class="text-center font-bold">Table of contents</h2>
 		<div class="">

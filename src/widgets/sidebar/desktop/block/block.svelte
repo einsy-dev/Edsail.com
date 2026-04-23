@@ -8,7 +8,16 @@
 	<ul class="flex flex-col">
 		{#each block as route}
 			<li>
-				<a href={route.path} class="flex py-2 items-center rounded">
+				<a
+					href={route.path || ''}
+					class="flex py-2 items-center rounded"
+					onclick={(e) => {
+						if (route.callback) {
+							e.preventDefault();
+							route.callback();
+						}
+					}}
+				>
 					<span>
 						{route.title}
 					</span>

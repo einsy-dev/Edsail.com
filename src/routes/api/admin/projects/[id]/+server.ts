@@ -1,5 +1,5 @@
-import { ProjectSchema, type ProjectSchemaI } from '$lib/server/zod';
-import ProjectService from '$services/project';
+import { ProjectSchema, type ProjectSchemaI } from '$lib/zod';
+import ProjectService from '$server/services/project';
 import { json } from '@sveltejs/kit';
 
 export async function PUT({ request, params }) {

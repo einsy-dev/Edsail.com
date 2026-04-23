@@ -1,4 +1,4 @@
-import { goto } from '$app/navigation';
+import { goto, invalidate, invalidateAll } from '$app/navigation';
 import { Project } from '$axios/project';
 import type { MenuItemI } from '$widgets/menu/menu';
 
@@ -24,7 +24,8 @@ export function genMenu(id: string, slug: string): MenuItemI[] {
 			value: 'Delete',
 			callback: async () => {
 				if (!id) return;
-				return Project.delete(id);
+				Project.delete(id);
+				invalidateAll();
 			}
 		}
 	];

@@ -10,10 +10,10 @@
 	let innerWidth = $state(0);
 
 	afterNavigate(() => {
-		sidebarState.update((state) => ({
-			...state,
-			blocks: [getRoutes(page.url.pathname)]
-		}));
+		sidebarState.update((state) => {
+			state.blocks[0] = getRoutes(page.url.pathname);
+			return state;
+		});
 	});
 </script>
 

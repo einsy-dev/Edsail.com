@@ -8,7 +8,6 @@ export const rootScroll: Action<
 	}
 > = (node) => {
 	const handleScroll = (event: Event) => {
-		console.log("scroll")
 		node.dispatchEvent(new CustomEvent('root_scroll'));
 	};
 

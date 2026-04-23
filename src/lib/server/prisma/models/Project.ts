@@ -167,10 +167,10 @@ export type ProjectGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 
 export type ProjectGroupByOutputType = {
   id: string
-  title: string
+  title: string | null
   description: string | null
   content: string | null
-  slug: string
+  slug: string | null
   keywords: string[]
   category: string[]
   images: string[]
@@ -201,10 +201,10 @@ export type ProjectWhereInput = {
   OR?: Prisma.ProjectWhereInput[]
   NOT?: Prisma.ProjectWhereInput | Prisma.ProjectWhereInput[]
   id?: Prisma.StringFilter<"Project"> | string
-  title?: Prisma.StringFilter<"Project"> | string
+  title?: Prisma.StringNullableFilter<"Project"> | string | null
   description?: Prisma.StringNullableFilter<"Project"> | string | null
   content?: Prisma.StringNullableFilter<"Project"> | string | null
-  slug?: Prisma.StringFilter<"Project"> | string
+  slug?: Prisma.StringNullableFilter<"Project"> | string | null
   keywords?: Prisma.StringNullableListFilter<"Project">
   category?: Prisma.StringNullableListFilter<"Project">
   images?: Prisma.StringNullableListFilter<"Project">
@@ -218,10 +218,10 @@ export type ProjectWhereInput = {
 
 export type ProjectOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  title?: Prisma.SortOrder
+  title?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   content?: Prisma.SortOrderInput | Prisma.SortOrder
-  slug?: Prisma.SortOrder
+  slug?: Prisma.SortOrderInput | Prisma.SortOrder
   keywords?: Prisma.SortOrder
   category?: Prisma.SortOrder
   images?: Prisma.SortOrder
@@ -239,7 +239,7 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.ProjectWhereInput | Prisma.ProjectWhereInput[]
   OR?: Prisma.ProjectWhereInput[]
   NOT?: Prisma.ProjectWhereInput | Prisma.ProjectWhereInput[]
-  title?: Prisma.StringFilter<"Project"> | string
+  title?: Prisma.StringNullableFilter<"Project"> | string | null
   description?: Prisma.StringNullableFilter<"Project"> | string | null
   content?: Prisma.StringNullableFilter<"Project"> | string | null
   keywords?: Prisma.StringNullableListFilter<"Project">
@@ -255,10 +255,10 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
 
 export type ProjectOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  title?: Prisma.SortOrder
+  title?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   content?: Prisma.SortOrderInput | Prisma.SortOrder
-  slug?: Prisma.SortOrder
+  slug?: Prisma.SortOrderInput | Prisma.SortOrder
   keywords?: Prisma.SortOrder
   category?: Prisma.SortOrder
   images?: Prisma.SortOrder
@@ -274,10 +274,10 @@ export type ProjectScalarWhereWithAggregatesInput = {
   OR?: Prisma.ProjectScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ProjectScalarWhereWithAggregatesInput | Prisma.ProjectScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Project"> | string
-  title?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  title?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
   description?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
   content?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
-  slug?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  slug?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
   keywords?: Prisma.StringNullableListFilter<"Project">
   category?: Prisma.StringNullableListFilter<"Project">
   images?: Prisma.StringNullableListFilter<"Project">
@@ -287,10 +287,10 @@ export type ProjectScalarWhereWithAggregatesInput = {
 
 export type ProjectCreateInput = {
   id?: string
-  title: string
+  title?: string | null
   description?: string | null
   content?: string | null
-  slug: string
+  slug?: string | null
   keywords?: Prisma.ProjectCreatekeywordsInput | string[]
   category?: Prisma.ProjectCreatecategoryInput | string[]
   images?: Prisma.ProjectCreateimagesInput | string[]
@@ -303,10 +303,10 @@ export type ProjectCreateInput = {
 
 export type ProjectUncheckedCreateInput = {
   id?: string
-  title: string
+  title?: string | null
   description?: string | null
   content?: string | null
-  slug: string
+  slug?: string | null
   keywords?: Prisma.ProjectCreatekeywordsInput | string[]
   category?: Prisma.ProjectCreatecategoryInput | string[]
   images?: Prisma.ProjectCreateimagesInput | string[]
@@ -319,10 +319,10 @@ export type ProjectUncheckedCreateInput = {
 
 export type ProjectUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   keywords?: Prisma.ProjectUpdatekeywordsInput | string[]
   category?: Prisma.ProjectUpdatecategoryInput | string[]
   images?: Prisma.ProjectUpdateimagesInput | string[]
@@ -335,10 +335,10 @@ export type ProjectUpdateInput = {
 
 export type ProjectUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   keywords?: Prisma.ProjectUpdatekeywordsInput | string[]
   category?: Prisma.ProjectUpdatecategoryInput | string[]
   images?: Prisma.ProjectUpdateimagesInput | string[]
@@ -351,10 +351,10 @@ export type ProjectUncheckedUpdateInput = {
 
 export type ProjectCreateManyInput = {
   id?: string
-  title: string
+  title?: string | null
   description?: string | null
   content?: string | null
-  slug: string
+  slug?: string | null
   keywords?: Prisma.ProjectCreatekeywordsInput | string[]
   category?: Prisma.ProjectCreatecategoryInput | string[]
   images?: Prisma.ProjectCreateimagesInput | string[]
@@ -364,10 +364,10 @@ export type ProjectCreateManyInput = {
 
 export type ProjectUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   keywords?: Prisma.ProjectUpdatekeywordsInput | string[]
   category?: Prisma.ProjectUpdatecategoryInput | string[]
   images?: Prisma.ProjectUpdateimagesInput | string[]
@@ -376,10 +376,10 @@ export type ProjectUpdateManyMutationInput = {
 
 export type ProjectUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   keywords?: Prisma.ProjectUpdatekeywordsInput | string[]
   category?: Prisma.ProjectUpdatecategoryInput | string[]
   images?: Prisma.ProjectUpdateimagesInput | string[]
@@ -554,10 +554,10 @@ export type ProjectUncheckedUpdateManyWithoutProjectGroupNestedInput = {
 
 export type ProjectCreateWithoutDocsInput = {
   id?: string
-  title: string
+  title?: string | null
   description?: string | null
   content?: string | null
-  slug: string
+  slug?: string | null
   keywords?: Prisma.ProjectCreatekeywordsInput | string[]
   category?: Prisma.ProjectCreatecategoryInput | string[]
   images?: Prisma.ProjectCreateimagesInput | string[]
@@ -569,10 +569,10 @@ export type ProjectCreateWithoutDocsInput = {
 
 export type ProjectUncheckedCreateWithoutDocsInput = {
   id?: string
-  title: string
+  title?: string | null
   description?: string | null
   content?: string | null
-  slug: string
+  slug?: string | null
   keywords?: Prisma.ProjectCreatekeywordsInput | string[]
   category?: Prisma.ProjectCreatecategoryInput | string[]
   images?: Prisma.ProjectCreateimagesInput | string[]
@@ -600,10 +600,10 @@ export type ProjectUpdateToOneWithWhereWithoutDocsInput = {
 
 export type ProjectUpdateWithoutDocsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   keywords?: Prisma.ProjectUpdatekeywordsInput | string[]
   category?: Prisma.ProjectUpdatecategoryInput | string[]
   images?: Prisma.ProjectUpdateimagesInput | string[]
@@ -615,10 +615,10 @@ export type ProjectUpdateWithoutDocsInput = {
 
 export type ProjectUncheckedUpdateWithoutDocsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   keywords?: Prisma.ProjectUpdatekeywordsInput | string[]
   category?: Prisma.ProjectUpdatecategoryInput | string[]
   images?: Prisma.ProjectUpdateimagesInput | string[]
@@ -630,10 +630,10 @@ export type ProjectUncheckedUpdateWithoutDocsInput = {
 
 export type ProjectCreateWithoutFilesInput = {
   id?: string
-  title: string
+  title?: string | null
   description?: string | null
   content?: string | null
-  slug: string
+  slug?: string | null
   keywords?: Prisma.ProjectCreatekeywordsInput | string[]
   category?: Prisma.ProjectCreatecategoryInput | string[]
   images?: Prisma.ProjectCreateimagesInput | string[]
@@ -645,10 +645,10 @@ export type ProjectCreateWithoutFilesInput = {
 
 export type ProjectUncheckedCreateWithoutFilesInput = {
   id?: string
-  title: string
+  title?: string | null
   description?: string | null
   content?: string | null
-  slug: string
+  slug?: string | null
   keywords?: Prisma.ProjectCreatekeywordsInput | string[]
   category?: Prisma.ProjectCreatecategoryInput | string[]
   images?: Prisma.ProjectCreateimagesInput | string[]
@@ -676,10 +676,10 @@ export type ProjectUpdateToOneWithWhereWithoutFilesInput = {
 
 export type ProjectUpdateWithoutFilesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   keywords?: Prisma.ProjectUpdatekeywordsInput | string[]
   category?: Prisma.ProjectUpdatecategoryInput | string[]
   images?: Prisma.ProjectUpdateimagesInput | string[]
@@ -691,10 +691,10 @@ export type ProjectUpdateWithoutFilesInput = {
 
 export type ProjectUncheckedUpdateWithoutFilesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   keywords?: Prisma.ProjectUpdatekeywordsInput | string[]
   category?: Prisma.ProjectUpdatecategoryInput | string[]
   images?: Prisma.ProjectUpdateimagesInput | string[]
@@ -706,10 +706,10 @@ export type ProjectUncheckedUpdateWithoutFilesInput = {
 
 export type ProjectCreateWithoutPoliciesInput = {
   id?: string
-  title: string
+  title?: string | null
   description?: string | null
   content?: string | null
-  slug: string
+  slug?: string | null
   keywords?: Prisma.ProjectCreatekeywordsInput | string[]
   category?: Prisma.ProjectCreatecategoryInput | string[]
   images?: Prisma.ProjectCreateimagesInput | string[]
@@ -721,10 +721,10 @@ export type ProjectCreateWithoutPoliciesInput = {
 
 export type ProjectUncheckedCreateWithoutPoliciesInput = {
   id?: string
-  title: string
+  title?: string | null
   description?: string | null
   content?: string | null
-  slug: string
+  slug?: string | null
   keywords?: Prisma.ProjectCreatekeywordsInput | string[]
   category?: Prisma.ProjectCreatecategoryInput | string[]
   images?: Prisma.ProjectCreateimagesInput | string[]
@@ -752,10 +752,10 @@ export type ProjectUpdateToOneWithWhereWithoutPoliciesInput = {
 
 export type ProjectUpdateWithoutPoliciesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   keywords?: Prisma.ProjectUpdatekeywordsInput | string[]
   category?: Prisma.ProjectUpdatecategoryInput | string[]
   images?: Prisma.ProjectUpdateimagesInput | string[]
@@ -767,10 +767,10 @@ export type ProjectUpdateWithoutPoliciesInput = {
 
 export type ProjectUncheckedUpdateWithoutPoliciesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   keywords?: Prisma.ProjectUpdatekeywordsInput | string[]
   category?: Prisma.ProjectUpdatecategoryInput | string[]
   images?: Prisma.ProjectUpdateimagesInput | string[]
@@ -782,10 +782,10 @@ export type ProjectUncheckedUpdateWithoutPoliciesInput = {
 
 export type ProjectCreateWithoutProjectGroupInput = {
   id?: string
-  title: string
+  title?: string | null
   description?: string | null
   content?: string | null
-  slug: string
+  slug?: string | null
   keywords?: Prisma.ProjectCreatekeywordsInput | string[]
   category?: Prisma.ProjectCreatecategoryInput | string[]
   images?: Prisma.ProjectCreateimagesInput | string[]
@@ -797,10 +797,10 @@ export type ProjectCreateWithoutProjectGroupInput = {
 
 export type ProjectUncheckedCreateWithoutProjectGroupInput = {
   id?: string
-  title: string
+  title?: string | null
   description?: string | null
   content?: string | null
-  slug: string
+  slug?: string | null
   keywords?: Prisma.ProjectCreatekeywordsInput | string[]
   category?: Prisma.ProjectCreatecategoryInput | string[]
   images?: Prisma.ProjectCreateimagesInput | string[]
@@ -841,10 +841,10 @@ export type ProjectScalarWhereInput = {
   OR?: Prisma.ProjectScalarWhereInput[]
   NOT?: Prisma.ProjectScalarWhereInput | Prisma.ProjectScalarWhereInput[]
   id?: Prisma.StringFilter<"Project"> | string
-  title?: Prisma.StringFilter<"Project"> | string
+  title?: Prisma.StringNullableFilter<"Project"> | string | null
   description?: Prisma.StringNullableFilter<"Project"> | string | null
   content?: Prisma.StringNullableFilter<"Project"> | string | null
-  slug?: Prisma.StringFilter<"Project"> | string
+  slug?: Prisma.StringNullableFilter<"Project"> | string | null
   keywords?: Prisma.StringNullableListFilter<"Project">
   category?: Prisma.StringNullableListFilter<"Project">
   images?: Prisma.StringNullableListFilter<"Project">
@@ -854,10 +854,10 @@ export type ProjectScalarWhereInput = {
 
 export type ProjectCreateManyProjectGroupInput = {
   id?: string
-  title: string
+  title?: string | null
   description?: string | null
   content?: string | null
-  slug: string
+  slug?: string | null
   keywords?: Prisma.ProjectCreatekeywordsInput | string[]
   category?: Prisma.ProjectCreatecategoryInput | string[]
   images?: Prisma.ProjectCreateimagesInput | string[]
@@ -866,10 +866,10 @@ export type ProjectCreateManyProjectGroupInput = {
 
 export type ProjectUpdateWithoutProjectGroupInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   keywords?: Prisma.ProjectUpdatekeywordsInput | string[]
   category?: Prisma.ProjectUpdatecategoryInput | string[]
   images?: Prisma.ProjectUpdateimagesInput | string[]
@@ -881,10 +881,10 @@ export type ProjectUpdateWithoutProjectGroupInput = {
 
 export type ProjectUncheckedUpdateWithoutProjectGroupInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   keywords?: Prisma.ProjectUpdatekeywordsInput | string[]
   category?: Prisma.ProjectUpdatecategoryInput | string[]
   images?: Prisma.ProjectUpdateimagesInput | string[]
@@ -896,10 +896,10 @@ export type ProjectUncheckedUpdateWithoutProjectGroupInput = {
 
 export type ProjectUncheckedUpdateManyWithoutProjectGroupInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   keywords?: Prisma.ProjectUpdatekeywordsInput | string[]
   category?: Prisma.ProjectUpdatecategoryInput | string[]
   images?: Prisma.ProjectUpdateimagesInput | string[]
@@ -1039,10 +1039,10 @@ export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    title: string
+    title: string | null
     description: string | null
     content: string | null
-    slug: string
+    slug: string | null
     keywords: string[]
     category: string[]
     images: string[]
@@ -1708,7 +1708,7 @@ export type ProjectCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   /**
    * The data needed to create a Project.
    */
-  data: Prisma.XOR<Prisma.ProjectCreateInput, Prisma.ProjectUncheckedCreateInput>
+  data?: Prisma.XOR<Prisma.ProjectCreateInput, Prisma.ProjectUncheckedCreateInput>
 }
 
 /**

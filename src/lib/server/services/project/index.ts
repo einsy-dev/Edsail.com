@@ -1,7 +1,7 @@
-import type { ProjectCreateSchemaI, ProjectSchemaI } from '$lib/server/zod';
-import prisma from '$prisma';
+import type { ProjectCreateSchemaI, ProjectSchemaI } from '$lib/zod';
+import prisma from '$server/prisma';
 import type { One } from '$types';
-import { parseRequest } from './parseRequest';
+import { parseRequest } from '$server/utils';
 
 class ProjectService {
 	request = parseRequest;

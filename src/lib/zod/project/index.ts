@@ -2,9 +2,9 @@ import z from 'zod';
 
 export const ProjectSchema = z.object({
 	id: z.string(),
-	title: z.string().nonempty(),
-	description: z.string().optional().default(''),
-	content: z.string().optional().default(''),
+	title: z.string().optional(),
+	description: z.string().optional(),
+	content: z.string().optional(),
 	slug: z.string(),
 	keywords: z
 		.array(z.string())

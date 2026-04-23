@@ -4,7 +4,8 @@ import { writable } from 'svelte/store';
 
 export type SidebarRoute = {
 	title: string;
-	path: string;
+	path?: string;
+	callback?: () => void;
 	icon?: Component<LucideProps>;
 	items?: Omit<SidebarRoute, 'items'>[];
 };

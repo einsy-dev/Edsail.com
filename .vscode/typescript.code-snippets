@@ -60,5 +60,19 @@
     ],
     "description": "",
     "scope": "typescript, typescriptreact"
+  },
+  "load": {
+    "prefix": [
+      "load"
+    ],
+    "body": [
+      "import type { PageLoad } from './$types';\r",
+      "\r",
+      "export const load: PageLoad = ({ params }) => {\r",
+      "\treturn {};\r",
+      "};"
+    ],
+    "description": "",
+    "scope": "typescript, typescriptreact"
   }
 }

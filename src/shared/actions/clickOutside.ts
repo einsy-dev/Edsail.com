@@ -9,14 +9,12 @@ export const clickOutside: Action<
 	}
 > = (node) => {
 	const handleClick = (event: MouseEvent) => {
-		console.log("click")
 		if (node && !node.contains(event.target as Node) && !event.defaultPrevented) {
 			node.dispatchEvent(new CustomEvent('click_outside'));
 		}
 	};
 
 	const handleContext = (event: MouseEvent) => {
-		console.log("context")
 		if (node && !node.contains(event.target as Node) && !event.defaultPrevented) {
 			node.dispatchEvent(new CustomEvent('context_outside'));
 		}

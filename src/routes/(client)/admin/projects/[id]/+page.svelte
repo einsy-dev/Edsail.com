@@ -27,39 +27,12 @@
 
 	onMount(async () => {
 		tocState.update((state) => {
-			// state.children = test;
 			return state;
 		});
-		if (page.params.slug) {
-			data = await Project.get(page.params.slug!);
-		} else if (page.params.edit == 'create') {
-			data = await IDB.getRecord(page.params.slug!);
-		}
-	});
-
-	let IDBSave = debounce(async (state) => {
-		await IDB.saveRecord('create', state);
-	}, 500);
-
-	let mounted = false;
-	$effect(() => {
-		if (page.params.edit !== 'create') return;
-		let state = $state.snapshot(data);
-		if (mounted) {
-			IDBSave(state);
-		}
-		mounted = true;
 	});
 
 	const cb = debounce(() => {
-		if (page.params.edit == 'create') {
-			Project.create($state.snapshot(data)).then((res: any) => {
-				IDB.deleteRecort('create');
-				goto(`/projects/${res.slug}`);
-			});
-		} else if (page.params.slug!) {
-			Project.update(page.params.slug, $state.snapshot(data));
-		}
+		Project.update(page.params.id!, $state.snapshot(data));
 	}, 100);
 </script>
 

@@ -8,10 +8,9 @@ const config = {
 		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter(),
 		alias: {
+			$server: 'src/lib/server',
+
 			$axios: 'src/lib/axios',
-			$zod: 'src/lib/server/zod',
-			$prisma: 'src/lib/server/prisma',
-			$services: 'src/lib/server/services',
 			$widgets: 'src/widgets',
 			$shared: 'src/shared/ui',
 			$actions: 'src/shared/actions',

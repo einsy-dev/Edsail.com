@@ -1,4 +1,4 @@
-import prisma from '$prisma';
+import prisma from '$server/prisma';
 import { json } from '@sveltejs/kit';
 
 export async function GET({ request, params }) {

@@ -19,14 +19,13 @@
 <a
 	href="projects/edit/{project.slug}"
 	oncontextmenu={(e) => {
-		console.log('fefef')
 		oncontextmenu(e, project);
 	}}
 >
 	<div class="card p-0! flex flex-1 rounded-xl overflow-hidden">
 		<div class="max-h-50 aspect-square">
 			<img
-				src={project.icon || 'https://placehold.co/400'}
+				src={"/" + project.icon || 'https://placehold.co/400'}
 				onerror={(e) => e.currentTarget.setAttribute('src', 'https://placehold.co/400')}
 				class="object-cover"
 				alt=""
